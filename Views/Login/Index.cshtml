@@ -1,37 +1,47 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <html>
-<body>
-    <div data-role="page">
-        <div data-role="header" data-nobackbtn="true" data-theme="b">
-            <h1>
-                Login</h1>
+    <body>
+        <!-- page -->
+        <div data-role="page">
+        
+            <!-- header -->
+            <div data-role="header" data-nobackbtn="true" data-theme="b">
+                <h1>Login v1</h1>
+            </div>
+            <!-- /header -->
+        
+            <!-- content -->
+            <div data-role="content" data-theme="b">
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "ui-body ui-body-a ui-corner-all" }))
+                {  
+                    <form id="formLogin" class="ui-body ui-body-a ui-corner-all">
+                        <fieldset>
+                            <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                                <label for="email">Email:</label>
+                                <input type="email" name="email" id="email" value="" />
+                                <label for="password">Password:</label>
+                                <input type="password" name="password" id="password" value="" />
+                                <button type="submit" data-theme="b" name="submit" value="submit-value" class="ui-btn-hidden" aria-disabled="false">
+                                    Acessar
+                                </button> 
+                            </div>
+                        </fieldset>
+                        <h3>@ViewBag.informacao</h3>
+                    </form>
+                    
+                }
+            </div>
+            <!-- /content -->
+        
+            <!-- footer -->
+            <div data-role="footer" data-theme="b">
+                <h4>Benner Sistemas</h4>
+            </div>
+            <!-- /footer -->
         </div>
-        <!-- /header -->
-        <div data-role="content" data-theme="b">
-            <form action="LogTeste.cshtml" method="get" class="ui-body ui-body-a ui-corner-all">
-            <fieldset>
-                
-                <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" value="" />
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" value="" />
-                    <button type="submit" data-theme="b" name="submit" value="submit-value" class="ui-btn-hidden" aria-disabled="false">
-                        Submit
-                    </button>
-                </div>
-             </fieldset>
-            </form>
-        </div>
-        <!-- /content -->
-        <div data-role="footer" data-theme="b">
-            <h4>
-                Benner Sistemas</h4>
-        </div>
-        <!-- /footer -->
-    </div>
-    <!-- /page -->
-</body>
+        <!-- /page -->
+    </body>
 </html>
