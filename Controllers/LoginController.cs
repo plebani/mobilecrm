@@ -32,11 +32,11 @@ namespace mobileCRM.Controllers
                 {
                     ViewBag.informacao = "Logando...";
                     System.Threading.Thread.Sleep(1000);
-                    RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ViewBag.informacao = "Babacaaaa";
+                    ViewBag.informacao = "Falha ao executar login.";
                 }
             }
 
