@@ -1,7 +1,71 @@
-﻿@{
+﻿@{  
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index</h2>
-
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <style>
+        /* App custom styles */
+    </style>
+</head>
+<body>
+    <!-- Home -->
+    <div data-role="page" id="page1">
+        <!-- CABECALHO -->
+        <div data-theme="a" data-role="header" data-position="inline">
+            <h3>
+                CRM
+            </h3>
+            @Html.ActionLink("Voltar", "Index", "Home")
+        </div>
+        <!-- CABECALHO -->
+        <div data-role="content" style="padding: 15px">
+            <ul data-role="listview" data-divider-theme="a" data-inset="true">
+                <li data-role="list-divider" role="heading">Próximas visitas </li>
+                <li data-theme="c"><a href="#page1" data-transition="slide">Industria de Tecidos S.A</a></li>
+            </ul>
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#page2" data-theme="" data-icon="">Nova Visita </a></li>
+                    <li><a href="#page2" data-theme="" data-icon="">Não Realizadas </a></li>
+                    <li><a href="#page2" data-theme="" data-icon="">Relacionamento </a></li>
+                </ul>
+            </div>
+        </div>
+        <!--RODAPE -->
+        <div data-theme="a" data-role="footer" data-position="fixed">
+            <h3>
+               Benner Sistemas
+            </h3>
+        </div>
+        <!--RODAPE -->
+    </div>
+    <!-- CABECALHO -->
+    <div data-theme="a" data-role="header" data-position="inline">
+        <h3>CRM</h3>
+        @Html.ActionLink("Voltar", "Index", "Home")
+    </div>
+    <div data-role="page" id="page2">
+        <ul data-role="listview" data-divider-theme="a" data-inset="true">
+            <li data-role="list-divider" role="heading">PAGE 2 </li>
+            <li data-theme="c"><a href="#page1" data-transition="slide">Benner S.A</a></li>
+        </ul>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#page1" data-theme="c" data-icon="">Nova Visita</a></li>
+                <li><a href="#page1" data-theme="c" data-icon="">Não Realizadas</a></li>
+                <li><a href="#page1" data-theme="c" data-icon="">Relacionamento</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- RODAPE -->
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3>
+            Benner Sistemas
+        </h3>
+    </div>
+</body>
+</html>

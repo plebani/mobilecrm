@@ -21,48 +21,34 @@ namespace mobileCRM.Controllers
             connectar();
             return View();
         }
-
+        
         public bool connectar()
         {
-            var uriString = ConfigurationManager.AppSettings["MOBILECRM"];
-            var uri = new Uri(uriString);
-            var connectionString = new SqlConnectionStringBuilder
-            {
-                DataSource = uri.Host,
-                InitialCatalog = uri.AbsolutePath.Trim('/'),
-                UserID = uri.UserInfo.Split(':').First(),
-                Password = uri.UserInfo.Split(':').Last(),
-            }.ConnectionString;
-
+            var xConnectionStrings = ConfigurationManager.ConnectionStrings["mobileCRM"];
+            
             // Create a connection string for the sample database
             SqlConnectionStringBuilder connString2Builder;
             connString2Builder = new SqlConnectionStringBuilder();
-            connString2Builder.DataSource = dataSource;
-            connString2Builder.ConnectionString = connectionString;
+            connString2Builder.ConnectionString = xConnectionStrings.ConnectionString;
             connString2Builder.Encrypt = true;
-            connString2Builder.TrustServerCertificate = false;
-            connString2Builder.UserID = userName;
-            connString2Builder.Password = password;
-
+            connString2Builder.TrustServerCertificate = true;
             
             // Connect to the master database and create the sample database
-            using (SqlConnection conn = new SqlConnection(connString2Builder.ToString()))
-            {
-                using (SqlCommand command = conn.CreateCommand())
-                {
-                    conn.Open();
+            //using (SqlConnection conn = new SqlConnection(connString2Builder.ToString()))
+            //{
+            //    using (SqlCommand command = conn.CreateCommand())
+            //    {
+            //        conn.Open();
 
-                    throw new Exception("Conectado...");
-                    // Create the sample database
-                    //string cmdText = String.Format("CREATE DATABASE {0}", sampleDatabaseName);
-                    //command.CommandText = cmdText;
-                    //command.ExecuteNonQuery();
-                    //conn.Close();
-                }
-            }
+            //        // Create the sample database
+            //        string cmdText = String.Format("INSERT INTO Tarefas (Descricao, Assunto) values ('Primeira tarefa','Novo Assunto')");
+            //        command.CommandText = cmdText;
+            //        command.ExecuteNonQuery();
+            //        conn.Close();
+            //    }
+            //}
 
             return true;
         }
-
     }
 }
