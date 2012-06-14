@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -18,6 +18,7 @@ namespace mobileCRM.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.usuario = "Alex Plebani";
             connectar();
             return View();
         }

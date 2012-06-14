@@ -14,7 +14,6 @@ namespace mobileCRM.Controllers
         public ActionResult Index()
         {
             ViewBag.informacao = string.Empty;
-            ViewBag.usuario = string.Empty;
             return View();
         }
         [HttpPost]
@@ -28,11 +27,10 @@ namespace mobileCRM.Controllers
                 email = collection["email"];
                 password = collection["password"];
 
-                if ((email == "alex") && (password == "123"))
+                if ((email == "alex@benner.com.br") && (password == "123"))
                 {
                     ViewBag.informacao = "Logando...";
                     System.Threading.Thread.Sleep(1000);
-                    ViewBag.usuario = "Alex Plebani";
                     return RedirectToAction("Index", "Home");
                 }
                 else
