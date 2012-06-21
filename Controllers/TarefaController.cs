@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using mobileCRM.Models;
 
 namespace mobileCRM.Controllers
 {
@@ -10,6 +11,7 @@ namespace mobileCRM.Controllers
     {
         //
         // GET: /Tarefa/
+        private CRMEntities context = new CRMEntities();
 
         public ActionResult Index()
         {

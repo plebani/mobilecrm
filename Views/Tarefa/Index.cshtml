@@ -2,16 +2,36 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <!DOCTYPE html> 
 <html> 
- <head> 
-    <title>Visita</title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
- </head> 
- <h2>Index</h2>
- @Html.ActionLink("Voltar", "Index", "Home")    
+<head> 
+  <meta name=viewport content="user-scalable=no,width=device-width" />
+</head> 
+
+<body> 
+
+<div data-role=page id=home>
+  <div data-role=header>
+    <h1>Home</h1>
+  </div>
+
+  <div data-role=content>
+    <span> Latitude : </span> <span id=lat></span> <br />
+    <span> Longitude : </span> <span id=lng></span> <br />
+  </div>
+</div>
+
+</body>
 </html>
-    
 
+<script>
 
+    navigator.geolocation.getCurrentPosition(function (pos) {
+        var lat = pos.coords.latitude;
+        var lng = pos.coords.longitude;
+        $("#lat").text(lat);
+        $("#lng").text(lng);
+    });
 
+</script>

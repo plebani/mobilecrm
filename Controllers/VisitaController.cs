@@ -3,17 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using mobileCRM.Models;
 
 namespace mobileCRM.Controllers
 {
     public class VisitaController : Controller
     {
+        private int handleUsuario;
         //
         // GET: /Visita/
 
         public ActionResult Index()
         {
-            return View();
+            Usuario user = (Usuario)Session["usuario"];
+            if (user != null)
+            {
+                handleUsuario = user.Handle;
+            }
+            else
+            {
+                return RedirectToAction("Login", "Index");
+            }
+
+            IRepositoryVisitas visitasRep = new VisitaRepository();
+            var visitas = visitasRep.BuscaTodasByUsuario(handleUsuario);
+
+            return View(visitas);
         }
 
         //
@@ -21,7 +36,10 @@ namespace mobileCRM.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            IRepositoryVisitas visitasRep = new VisitaRepository();
+            var visitas = visitasRep.BuscaByHandle(id);
+
+            return View(visitas);
         }
 
         //

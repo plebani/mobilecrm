@@ -1,5 +1,7 @@
-﻿@{  
-    ViewBag.Title = "Index";
+﻿@model IList<mobileCRM.Models.Visita>
+
+@{  
+    ViewBag.Title = "Visita";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html> 
@@ -15,7 +17,7 @@
         <!-- CABECALHO -->
         <div data-theme="a" data-role="header" data-position="inline">
             <h3>
-                CRM
+                Visitas
             </h3>
             @Html.ActionLink("Voltar", "Index", "Home")
         </div>
@@ -23,7 +25,10 @@
         <div data-role="content" style="padding: 15px">
             <ul data-role="listview" data-divider-theme="a" data-inset="true">
                 <li data-role="list-divider" role="heading">Próximas visitas </li>
-                <li data-theme="c"><a href="#page1" data-transition="slide">Industria de Tecidos S.A</a></li>
+                @foreach (var item in Model)
+                {
+                    <li data-theme="c"><a href="@Url.Action("Details", "Visita", new { id = item.Handle })" data-transition="slide">@item.Descricao</a></li>
+                }
             </ul>
             <div data-role="navbar" data-iconpos="top">
                 <ul>

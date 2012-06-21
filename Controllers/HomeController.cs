@@ -16,10 +16,21 @@ namespace mobileCRM.Controllers
         private static string dataSource = "dbd8982ffc646f4d9db795a06701352c7";
         private static string sampleDatabaseName = "Server=d8982ffc-646f-4d9d-b795-a06701352c73.sqlserver.sequelizer.com;Database=dbd8982ffc646f4d9db795a06701352c73;User ID=jtpohlwqgqnikwgt;Password=UYr4CWLB4qUcGjWCkhdnwKvUBDGD5ADteEZydENFhiMbNYeeYdjpYdyjBEz7phEA;";
 
+        private CRMEntities context = new CRMEntities();
 
         public ActionResult Index()
         {
-            //ViewBag.usuario = "Alex Plebani";
+            // Pega usuario da Sessão.
+            Usuario user = (Usuario)Session["usuario"];
+            // Preenche nome do Usuario na Tela.
+            ViewBag.usuario = string.Format("{0} {1}", user.Nome, user.Sobrenome);
+
+            // Verifica se tem visitas para esse usuario.
+            var visitas = context.Visitas.Where(p => p.Usuario.Handle == user.Handle).ToList();
+
+            // Preenche msg na tela de visitas (Rótulo)
+            ViewBag.MenssagemTituloVisitas = visitas.Count > 0 ? "Você possui novas atividades" : "Você não possui atividades";
+
             return View();
         }
         

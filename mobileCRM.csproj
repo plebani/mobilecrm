@@ -70,11 +70,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\TarefaRepository.cs" />
+    <Compile Include="Models\IRepositoryTarefas.cs" />
     <Compile Include="Models\CRMDbContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRMDbContext.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\IRepositoryVisitas.cs" />
+    <Compile Include="Models\VisitaRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +164,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CRMDbContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Visita\Details.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

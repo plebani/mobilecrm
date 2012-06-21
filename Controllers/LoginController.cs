@@ -30,23 +30,30 @@ namespace mobileCRM.Controllers
                 nome     = collection["nome"];
                 password = collection["password"];
 
-                var x = ctx.Usuarios.Where(p => p.Nome == nome && p.Senha == password).SingleOrDefault();
+                var user = ctx.Usuarios.Where(p => p.Nome == nome && p.Senha == password).SingleOrDefault();
                 
-                if (x != null)
+                if (user != null)
                 {
+                    Session["usuario"] = user;
                     ViewBag.informacao = "Logando...";
-                    ViewBag.usuario    = string.Format("{0} {1}", x.Nome, x.Sobrenome);
-                    System.Threading.Thread.Sleep(1000);
+                    ViewBag.usuario = string.Format("{0} {1}", user.Nome, user.Sobrenome);
                     
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ViewBag.informacao = "Falha ao executar login.";
+                    ViewBag.informacao = "Usuário/Senha incorretos.";
                 }
             }
 
             return View();
+        }
+        
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+
+            return RedirectToAction("Index", "Login");
         }
     }
 }

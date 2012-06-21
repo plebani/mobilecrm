@@ -31,13 +31,18 @@
                 </div>
                 <ul data-role="listview" data-divider-theme="a" data-inset="true">
                     <li data-role="list-divider" role="heading">
-                        Você possui novas atividades
+                        @ViewBag.MenssagemTituloVisitas
                     </li>
                     <li data-theme="c" >
                         @Html.ActionLink("Visitas", "Index", "Visita")
+                        <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">4</span>
                     </li>
                     <li data-theme="c">
                         @Html.ActionLink("Tarefas", "Index", "Tarefa")
+                        <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">2</span>
+                    </li>
+                    <li data-theme="c">
+                        @Html.ActionLink("Agenda", "", "")
                     </li>
                     <li data-theme="c">
                         @Html.ActionLink("Relacionamento", "Index", "Relacionamento")
@@ -51,7 +56,9 @@
             </div>
         </div>
         <script>
-            //App custom javascript
+            $(document).ready(function () {
+                
+            });
         </script>
     </body>
 </html>
