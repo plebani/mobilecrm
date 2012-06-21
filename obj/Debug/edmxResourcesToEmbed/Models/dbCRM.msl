@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CRMModelStoreContainer" CdmEntityContainer="CRMEntities">
+    <EntitySetMapping Name="Tarefas">
+      <EntityTypeMapping TypeName="CRMModel.Tarefa">
+        <MappingFragment StoreEntitySet="Tarefas">
+          <ScalarProperty Name="Handle" ColumnName="Handle" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Assunto" ColumnName="Assunto" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+          <ScalarProperty Name="DataConclusao" ColumnName="DataConclusao" />
+          <ScalarProperty Name="DataAgendada" ColumnName="DataAgendada" />
+          <ScalarProperty Name="DataLembrete" ColumnName="DataLembrete" />
+          <ScalarProperty Name="Lembrete" ColumnName="Lembrete" />
+          <ScalarProperty Name="AgendarTarefa" ColumnName="AgendarTarefa" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="CRMModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Handle" ColumnName="Handle" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Sobrenome" ColumnName="Sobrenome" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visitas">
+      <EntityTypeMapping TypeName="CRMModel.Visita">
+        <MappingFragment StoreEntitySet="Visitas">
+          <ScalarProperty Name="Handle" ColumnName="Handle" />
+          <ScalarProperty Name="Assunto" ColumnName="Assunto" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="DataInicio" ColumnName="DataInicio" />
+          <ScalarProperty Name="DataConclusao" ColumnName="DataConclusao" />
+          <ScalarProperty Name="DataAgendada" ColumnName="DataAgendada" />
+          <ScalarProperty Name="Lembrete" ColumnName="Lembrete" />
+          <ScalarProperty Name="AgendarTarefa" ColumnName="AgendarTarefa" />
+          <ScalarProperty Name="ClienteBase" ColumnName="ClienteBase" />
+          <ScalarProperty Name="TipoTarefa" ColumnName="TipoTarefa" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

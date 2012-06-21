@@ -1,10 +1,11 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using mobileCRM.Models;
 
 namespace mobileCRM.Controllers
 {
@@ -18,13 +19,28 @@ namespace mobileCRM.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.usuario = "Alex Plebani";
-            connectar();
+            //ViewBag.usuario = "Alex Plebani";
             return View();
         }
         
         public bool connectar()
         {
+            //Usuario novaTarega = new Usuario();
+            //novaTarega.Nome = "Ivan";
+            //novaTarega.Sobrenome = "Filagrana";
+            //novaTarega.Senha = "000";
+
+            CRMEntities dbContext = new CRMEntities();
+            //var x = dbContext.Usuarios.Where(p => p.Nome == ).SingleOrDefault();
+            //x.Nome = "Ivan Filagrana";
+            
+            //teste.SaveChanges();
+
+            //var te = teste.Usuarios.Select(p => p.Handle == 2);
+            
+            //teste.AddToUsuarios(novaTarega);
+            //teste.SaveChanges();
+
             var xConnectionStrings = ConfigurationManager.ConnectionStrings["mobileCRM"];
             
             // Create a connection string for the sample database

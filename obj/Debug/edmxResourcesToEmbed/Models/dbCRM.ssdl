@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CRMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CRMModelStoreContainer">
+    <EntitySet Name="Tarefas" EntityType="CRMModel.Store.Tarefas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuarios" EntityType="CRMModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Visitas" EntityType="CRMModel.Store.Visitas" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="IDUsuario_Visitas" Association="CRMModel.Store.IDUsuario_Visitas">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Visitas" EntitySet="Visitas" />
+    </AssociationSet>
+    <AssociationSet Name="IDUsuario2" Association="CRMModel.Store.IDUsuario2">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Tarefas" EntitySet="Tarefas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Tarefas">
+    <Key>
+      <PropertyRef Name="Handle" />
+    </Key>
+    <Property Name="Handle" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="varchar" MaxLength="250" />
+    <Property Name="Assunto" Type="varchar" MaxLength="100" />
+    <Property Name="DataInicio" Type="datetime" />
+    <Property Name="DataConclusao" Type="datetime" />
+    <Property Name="DataAgendada" Type="datetime" />
+    <Property Name="DataLembrete" Type="datetime" />
+    <Property Name="Lembrete" Type="int" />
+    <Property Name="AgendarTarefa" Type="int" />
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Handle" />
+    </Key>
+    <Property Name="Handle" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Sobrenome" Type="varchar" MaxLength="50" />
+    <Property Name="Senha" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Visitas">
+    <Key>
+      <PropertyRef Name="Handle" />
+    </Key>
+    <Property Name="Handle" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Assunto" Type="varchar" MaxLength="100" />
+    <Property Name="Descricao" Type="varchar" MaxLength="250" />
+    <Property Name="DataInicio" Type="datetime" />
+    <Property Name="DataConclusao" Type="datetime" />
+    <Property Name="DataAgendada" Type="datetime" />
+    <Property Name="Lembrete" Type="int" />
+    <Property Name="AgendarTarefa" Type="int" />
+    <Property Name="ClienteBase" Type="int" />
+    <Property Name="TipoTarefa" Type="int" />
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="IDUsuario_Visitas">
+    <End Role="Usuarios" Type="CRMModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="Visitas" Type="CRMModel.Store.Visitas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Handle" />
+      </Principal>
+      <Dependent Role="Visitas">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IDUsuario2">
+    <End Role="Usuarios" Type="CRMModel.Store.Usuarios" Multiplicity="1" />
+    <End Role="Tarefas" Type="CRMModel.Store.Tarefas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Handle" />
+      </Principal>
+      <Dependent Role="Tarefas">
+        <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

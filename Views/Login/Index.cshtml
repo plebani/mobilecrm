@@ -1,8 +1,13 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Login</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+</head> 
 
-<html>
     <body>
         <!-- page -->
         <div data-role="page">
@@ -20,8 +25,8 @@
                     <form id="formLogin" class="ui-body ui-body-a ui-corner-all">
                         <fieldset>
                             <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                <label for="email">Email:</label>
-                                <input type="email" name="email" id="email" value="" />
+                                <label for="nome">Nome:</label>
+                                <input type="text" name="nome" id="nome" value="" />
                                 <label for="password">Password:</label>
                                 <input type="password" name="password" id="password" value="" />
                                 <button type="submit" data-theme="b" name="submit" value="submit-value" class="ui-btn-hidden" aria-disabled="false">
