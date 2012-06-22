@@ -78,6 +78,7 @@
       <DependentUpon>CRMDbContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IRepositoryVisitas.cs" />
+    <Compile Include="Models\Visita.cs" />
     <Compile Include="Models\VisitaRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -104,6 +105,7 @@
     <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\gps.jquery.js" />
     <Content Include="Scripts\mobile\jquery.mobile-1.0.1.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

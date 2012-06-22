@@ -12,6 +12,11 @@
       <End Role="Usuarios" EntitySet="Usuarios" />
       <End Role="Visitas" EntitySet="Visitas" />
     </AssociationSet>
+    <EntitySet Name="Clientes" EntityType="CRMModel.Clientes" />
+    <AssociationSet Name="IDCliente_Visitas" Association="CRMModel.IDCliente_Visitas">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Visita" EntitySet="Visitas" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Tarefa">
     <Key>
@@ -56,6 +61,8 @@
     <Property Name="TipoTarefa" Type="Int32" />
     <Property Name="IDUsuario" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Usuario" Relationship="CRMModel.IDUsuario_Visitas" FromRole="Visitas" ToRole="Usuarios" />
+    <Property Type="Int32" Name="IDCliente" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="CRMModel.IDCliente_Visitas" FromRole="Visita" ToRole="Clientes" />
   </EntityType>
   <Association Name="IDUsuario2">
     <End Role="Usuarios" Type="CRMModel.Usuario" Multiplicity="1" />
@@ -78,6 +85,44 @@
       </Principal>
       <Dependent Role="Visitas">
         <PropertyRef Name="IDUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="Handle" />
+    </Key>
+    <Property Type="Int32" Name="Handle" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nome" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Cargo" Nullable="false" />
+    <Property Type="String" Name="Empresa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="RamoAtividade" Nullable="false" />
+    <Property Type="String" Name="Telefone" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Celular" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Site" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="NivelInteresse" />
+    <Property Type="String" Name="CEP" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="Int32" Name="TipoLogradouro" />
+    <Property Type="String" Name="Endereco" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Numero" />
+    <Property Type="String" Name="Complemento" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Bairro" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Cidade" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UF" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="OrigemContato" />
+    <Property Type="Int32" Name="Potencial" />
+    <NavigationProperty Name="Visitas" Relationship="CRMModel.IDCliente_Visitas" FromRole="Clientes" ToRole="Visita" />
+  </EntityType>
+  <Association Name="IDCliente_Visitas">
+    <End Type="CRMModel.Clientes" Role="Clientes" Multiplicity="1" />
+    <End Type="CRMModel.Visita" Role="Visita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="Handle" />
+      </Principal>
+      <Dependent Role="Visita">
+        <PropertyRef Name="IDCliente" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -43,6 +43,14 @@ namespace mobileCRM.Models
             return visitas; 
         }
 
+        public IList<Clientes> BuscaClienteByTipo(int tipoCliente)
+        {
+            var clientes = from c in db.Clientes
+                           where c.Potencial == tipoCliente
+                           select c;
+
+            return clientes.ToList();
+        }
         #endregion
 
     }

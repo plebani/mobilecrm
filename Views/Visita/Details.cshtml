@@ -7,36 +7,37 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Visitas</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     </head>
     <body>
         <!-- Home -->
         <div data-role="page" id="page1">
-            <div data-theme="a" data-role="header">
+            <div data-theme="a" data-role="header" data-position="inline">
                 <h3>Visita</h3>
+                @Html.ActionLink("Voltar", "Index", "Visita")
             </div>
+            
             <div data-role="content" style="padding: 15px">
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
                         <label for="textinput1">
-                            Local:
+                            Local: 
                         </label>
-                        <input id="textinput1" placeholder="" value="Blumenau-SC Cede do Cliente" type="text" />
-                        <label for="date">Data/Hora:</label>
-                        <input type="date" name="date" id="date" value="@Model.DataAgendada"  />
+                        <input id="textinput1" placeholder="" value="@Model.ClientesReference.Value.Cidade - @Model.ClientesReference.Value.UF" type="text" />
+                        <label for="textinput1">
+                            Data/Hora: 
+                        </label>
+                        <input name="dataHora" id="dataHoraVisita" type="text"  value="@Model.DataInicio" data-role="datebox" data-options="{&quot;mode&quot;:&quot;datebox&quot;, &quot;useNewStyle&quot;:true}" class="ui-input-text ui-body-d ui-shadow-inset ui-corner-all ui-icon-datebox" readonly="readonly">
                     </fieldset>
                 </div>
                 <img src="https://maps.googleapis.com/maps/api/staticmap?center=Madison, WI&amp;zoom=14&amp;size=288x200&amp;markers=Madison, WI&amp;sensor=false" width="288" height="200" />
             </div>
             <div data-theme="a" data-role="footer" data-position="fixed">
-                <h3>
-                    Benner Sistemas
-                </h3>
+                <h3>Benner Sistemas</h3>
             </div>
         </div>
-        <script>
-            //App custom javascript
-        </script>
     </body>
 </html>
-

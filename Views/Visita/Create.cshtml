@@ -1,9 +1,104 @@
 ﻿@model mobileCRM.Models.Visita
-
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+</head>
+<body>
+    <!-- Home -->
+    <div data-role="page" id="page1">
+        <div data-theme="a" data-role="header">
+            <h3>
+                Nova Visita
+            </h3>
+        </div>
+        <div data-role="content" style="padding: 15px">
+            @using (@Html.BeginForm())
+            {
+            <div data-role="fieldcontain">
+                <label for="selectmenu1">
+                    Tipo Tarefa:
+                </label>
+                <select name="selectmenu1" id="selectmenu1">
+                    <option value="1">Visita </option>
+                    <option value="2">Relacionamento </option>
+                    <option value="3">Tarefa </option>
+                </select>
+            </div>
+                <div data-role="fieldcontain" id="divTipocliente">
+                    <fieldset data-role="controlgroup" data-type="vertical">
+                        <legend>Tipo Cliente: </legend>
+                        <input name="radiobuttons1" id="TipoCliente1" value="1" type="radio"/>
+                        <label for="TipoCliente1">
+                            Base
+                        </label>
+                        <input name="radiobuttons1" id="TipoCliente2" value="2" type="radio" />
+                        <label for="TipoCliente2">
+                            Potencial
+                        </label>
+                    </fieldset>
+                </div>
+                <label for="select-choice-a">
+                     Cliente
+                </label>
+                <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                    <div class="ui-select">
+                        <select name="select-choice-a" id="select-choice-a" data-native-menu="false" data-mini="true" tabindex="-1" data-filter="true">
+                            @foreach (var item in Model.BuscaClienteByTipo(1))
+                            {
+                                <option value="@item.Handle">@item.Nome</option>
+                            }                        
+                        </select>
+                    </div>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput2">
+                            Assunto
+                        </label>
+                        <input id="textinput2" placeholder="" value="" type="text" />
+                    </fieldset>
+                </div>
+                <label for="textinput1">
+                     Data Inicio
+                </label>
+                <input name="dataInicio" id="dataHoraInicio" type="text"  value="" data-role="datebox" data-options="{&quot;mode&quot;:&quot;datebox&quot;, &quot;useNewStyle&quot;:true}" class="ui-input-text ui-body-d ui-shadow-inset ui-corner-all ui-icon-datebox" readonly="readonly" />
+                <label for="textinput1">
+                     Data Conclusão: 
+                </label>
+                <input name="dataConclusao" id="dataHoraConclusao" type="text"  value="" data-role="datebox" data-options="{&quot;mode&quot;:&quot;datebox&quot;, &quot;useNewStyle&quot;:true}" class="ui-input-text ui-body-d ui-shadow-inset ui-corner-all ui-icon-datebox" readonly="readonly" />
 
-
-
+                <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textarea1">
+                                Descrição
+                            </label>
+                            <textarea id="textarea1" placeholder=""></textarea>
+                        </fieldset>
+                 </div>
+                <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <a data-role="button" data-transition="none" href="#page1" data-icon="delete" data-iconpos="left">
+                                Cancelar
+                            </a>
+                        </div>
+                        <div class="ui-block-b">
+                            <input type="submit" data-icon="check" data-iconpos="left" value="Salvar" />
+                        </div>
+                </div>
+            }
+        </div>
+        <div data-theme="a" data-role="footer" data-position="fixed">
+            <h3>
+                Benner Sistemas
+            </h3>
+        </div>
+    </div>
+</body>
+</html>

@@ -47,7 +47,8 @@ namespace mobileCRM.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            ViewBag.valorTipoCliente = 1;
+            return View(new Visita());
         } 
 
         //
@@ -66,6 +67,15 @@ namespace mobileCRM.Controllers
             {
                 return View();
             }
+        }
+        
+        public JsonResult Teste()
+        {
+            List<Clientes> Allclientes = new List<Clientes>();
+            Allclientes.Add(new Clientes { Handle = 1, Nome = " Clientes 1" });
+            Allclientes.Add(new Clientes { Handle = 3, Nome = " Clientes 3" });
+            Allclientes.Add(new Clientes { Handle = 4, Nome = " Clientes 4" });
+            return Json(Allclientes, JsonRequestBehavior.AllowGet);
         }
         
         //

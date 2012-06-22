@@ -10,5 +10,6 @@ namespace mobileCRM.Models
         IList<Visita> BuscaTodas();
         IList<Visita> BuscaTodasByUsuario(int handleUsuario);
         Visita BuscaByHandle(int handle);
+        IList<Clientes> BuscaClienteByTipo(int tipoCliente);
     }
 }

@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="CRMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="CRMModelStoreContainer">
+    <EntitySet Name="Clientes" EntityType="CRMModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Tarefas" EntityType="CRMModel.Store.Tarefas" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Usuarios" EntityType="CRMModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Visitas" EntityType="CRMModel.Store.Visitas" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="IDCliente_Visitas" Association="CRMModel.Store.IDCliente_Visitas">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Visitas" EntitySet="Visitas" />
+    </AssociationSet>
     <AssociationSet Name="IDUsuario_Visitas" Association="CRMModel.Store.IDUsuario_Visitas">
       <End Role="Usuarios" EntitySet="Usuarios" />
       <End Role="Visitas" EntitySet="Visitas" />
@@ -13,6 +18,31 @@
       <End Role="Tarefas" EntitySet="Tarefas" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="Handle" />
+    </Key>
+    <Property Name="Handle" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Cargo" Type="int" Nullable="false" />
+    <Property Name="Empresa" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="RamoAtividade" Type="int" Nullable="false" />
+    <Property Name="Telefone" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Celular" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Site" Type="varchar" MaxLength="50" />
+    <Property Name="NivelInteresse" Type="int" />
+    <Property Name="CEP" Type="nchar" MaxLength="10" />
+    <Property Name="TipoLogradouro" Type="int" />
+    <Property Name="Endereco" Type="varchar" MaxLength="50" />
+    <Property Name="Numero" Type="int" />
+    <Property Name="Complemento" Type="varchar" MaxLength="50" />
+    <Property Name="Bairro" Type="varchar" MaxLength="50" />
+    <Property Name="Cidade" Type="varchar" MaxLength="50" />
+    <Property Name="UF" Type="varchar" MaxLength="2" />
+    <Property Name="OrigemContato" Type="int" />
+    <Property Name="Potencial" Type="int" />
+  </EntityType>
   <EntityType Name="Tarefas">
     <Key>
       <PropertyRef Name="Handle" />
@@ -52,7 +82,20 @@
     <Property Name="ClienteBase" Type="int" />
     <Property Name="TipoTarefa" Type="int" />
     <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="IDCliente" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="IDCliente_Visitas">
+    <End Role="Clientes" Type="CRMModel.Store.Clientes" Multiplicity="1" />
+    <End Role="Visitas" Type="CRMModel.Store.Visitas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="Handle" />
+      </Principal>
+      <Dependent Role="Visitas">
+        <PropertyRef Name="IDCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="IDUsuario_Visitas">
     <End Role="Usuarios" Type="CRMModel.Store.Usuarios" Multiplicity="1" />
     <End Role="Visitas" Type="CRMModel.Store.Visitas" Multiplicity="*" />

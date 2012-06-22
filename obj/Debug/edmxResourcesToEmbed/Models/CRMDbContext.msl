@@ -30,6 +30,7 @@
     <EntitySetMapping Name="Visitas">
       <EntityTypeMapping TypeName="CRMModel.Visita">
         <MappingFragment StoreEntitySet="Visitas">
+          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
           <ScalarProperty Name="Handle" ColumnName="Handle" />
           <ScalarProperty Name="Assunto" ColumnName="Assunto" />
           <ScalarProperty Name="Descricao" ColumnName="Descricao" />
@@ -41,6 +42,32 @@
           <ScalarProperty Name="ClienteBase" ColumnName="ClienteBase" />
           <ScalarProperty Name="TipoTarefa" ColumnName="TipoTarefa" />
           <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="CRMModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="Potencial" ColumnName="Potencial" />
+          <ScalarProperty Name="OrigemContato" ColumnName="OrigemContato" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="TipoLogradouro" ColumnName="TipoLogradouro" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="NivelInteresse" ColumnName="NivelInteresse" />
+          <ScalarProperty Name="Site" ColumnName="Site" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="RamoAtividade" ColumnName="RamoAtividade" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Handle" ColumnName="Handle" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
