@@ -25,7 +25,7 @@
                 <label for="selectmenu1">
                     Tipo Tarefa:
                 </label>
-                <select name="selectmenu1" id="selectmenu1">
+                <select name="selectmenu1" id="selectmenu1" data-native-menu="false" tabindex="-1" data-filter="true">
                     <option value="1">Visita </option>
                     <option value="2">Relacionamento </option>
                     <option value="3">Tarefa </option>
@@ -44,18 +44,16 @@
                         </label>
                     </fieldset>
                 </div>
-                <label for="select-choice-a">
-                     Cliente
-                </label>
-                <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                    <div class="ui-select">
-                        <select name="select-choice-a" id="select-choice-a" data-native-menu="false" data-mini="true" tabindex="-1" data-filter="true">
+                <div data-role="fieldcontain">
+                        <label for="clientes">
+                            Cliente
+                        </label>
+                        <select name="clientes" id="clientes" data-native-menu="false" tabindex="-1" data-filter="true">
                             @foreach (var item in Model.BuscaClienteByTipo(1))
                             {
                                 <option value="@item.Handle">@item.Nome</option>
                             }                        
                         </select>
-                    </div>
                 </div>
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
@@ -65,15 +63,20 @@
                         <input id="textinput2" placeholder="" value="" type="text" />
                     </fieldset>
                 </div>
-                <label for="textinput1">
-                     Data Inicio
-                </label>
-                <input name="dataInicio" id="dataHoraInicio" type="text"  value="" data-role="datebox" data-options="{&quot;mode&quot;:&quot;datebox&quot;, &quot;useNewStyle&quot;:true}" class="ui-input-text ui-body-d ui-shadow-inset ui-corner-all ui-icon-datebox" readonly="readonly" />
-                <label for="textinput1">
-                     Data Conclusão: 
-                </label>
-                <input name="dataConclusao" id="dataHoraConclusao" type="text"  value="" data-role="datebox" data-options="{&quot;mode&quot;:&quot;datebox&quot;, &quot;useNewStyle&quot;:true}" class="ui-input-text ui-body-d ui-shadow-inset ui-corner-all ui-icon-datebox" readonly="readonly" />
-
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="dataInicio">Data Inicio</label>
+                        <input name="dataInicio" id="dataInicio" type="date" data-role="datebox" data-options='{"mode": "calbox", "calTodayButton": true}' />
+                    </fieldset>
+                </div>                
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="dataConclusao">
+                            Data Conclusão: 
+                        </label>
+                        <input name="dataConclusao" id="dataConclusao" type="date" data-role="datebox" data-options='{"mode": "calbox", "calTodayButton": true}' />
+                 </fieldset>
+                </div>            
                 <div data-role="fieldcontain">
                         <fieldset data-role="controlgroup">
                             <label for="textarea1">
