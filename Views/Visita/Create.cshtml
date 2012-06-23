@@ -19,27 +19,28 @@
             </h3>
         </div>
         <div data-role="content" style="padding: 15px">
-            @using (@Html.BeginForm())
+            @using (@Html.BeginForm("Create", "Visita", FormMethod.Post))
             {
-            <div data-role="fieldcontain">
-                <label for="selectmenu1">
-                    Tipo Tarefa:
-                </label>
-                <select name="selectmenu1" id="selectmenu1" data-native-menu="false" tabindex="-1" data-filter="true">
-                    <option value="1">Visita </option>
-                    <option value="2">Relacionamento </option>
-                    <option value="3">Tarefa </option>
-                </select>
-            </div>
+                 <div data-role="fieldcontain">
+                    <label for="selectmenu1">
+                        Tipo Tarefa:
+                    </label>
+                    <select name="tipoTarefa" id="tipoTarefa" data-native-menu="false" tabindex="-1"
+                        data-filter="true">
+                        <option value="1">Visita </option>
+                        <option value="2">Relacionamento </option>
+                        <option value="3">Tarefa </option>
+                    </select>
+                </div>
                 <div data-role="fieldcontain" id="divTipocliente">
                     <fieldset data-role="controlgroup" data-type="vertical">
                         <legend>Tipo Cliente: </legend>
-                        <input name="radiobuttons1" id="TipoCliente1" value="1" type="radio"/>
-                        <label for="TipoCliente1">
+                        <input name="tipoCliente1" id="tipoCliente1" value="1" type="radio" checked="true"/>
+                        <label for="tipoCliente1">
                             Base
                         </label>
-                        <input name="radiobuttons1" id="TipoCliente2" value="2" type="radio" />
-                        <label for="TipoCliente2">
+                        <input name="tipoCliente2" id="tipoCliente2" value="2" type="radio" />
+                        <label for="tipoCliente2">
                             Potencial
                         </label>
                     </fieldset>
@@ -57,10 +58,10 @@
                 </div>
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
-                        <label for="textinput2">
+                        <label for="assunto">
                             Assunto
                         </label>
-                        <input id="textinput2" placeholder="" value="" type="text" />
+                        <input id="assunto" name="assunto" value="" type="text" />
                     </fieldset>
                 </div>
                 <div data-role="fieldcontain">
@@ -78,29 +79,28 @@
                  </fieldset>
                 </div>            
                 <div data-role="fieldcontain">
-                        <fieldset data-role="controlgroup">
-                            <label for="textarea1">
-                                Descrição
-                            </label>
-                            <textarea id="textarea1" placeholder=""></textarea>
-                        </fieldset>
-                 </div>
-                <div class="ui-grid-a">
+                    <fieldset data-role="controlgroup">
+                        <label for="desc">
+                            Descrição
+                        </label>
+                        <textarea name="descricao" id="descricao"></textarea>
+                    </fieldset>
+                </div>
+  
+                <div data-role="fieldcontain">
+                    <fieldset class="ui-grid-a">
                         <div class="ui-block-a">
-                            <a data-role="button" data-transition="none" href="#page1" data-icon="delete" data-iconpos="left">
-                                Cancelar
-                            </a>
+                            <button class="ui-btn-hidden" aria-disabled="false">Cancelar</button>
                         </div>
                         <div class="ui-block-b">
-                            <input type="submit" data-icon="check" data-iconpos="left" value="Salvar" />
+                            <button type="submit" class="ui-btn-hidden" aria-disabled="false">Salvar</button>
                         </div>
+                    </fieldset>
                 </div>
             }
         </div>
         <div data-theme="a" data-role="footer" data-position="fixed">
-            <h3>
-                Benner Sistemas
-            </h3>
+            <h3>Benner Sistemas</h3>
         </div>
     </div>
 </body>

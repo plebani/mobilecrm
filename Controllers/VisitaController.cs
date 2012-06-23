@@ -59,7 +59,53 @@ namespace mobileCRM.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                Usuario user = (Usuario)Session["usuario"];
+
+                Visita visita = new Visita();
+
+                if (!string.IsNullOrEmpty(collection["tipoTarefa"]))
+                {
+                    visita.TipoTarefa = Convert.ToInt32(collection["tipoTarefa"]);
+                }
+                if (!string.IsNullOrEmpty(collection["tipoCliente1"]))
+                {
+                    visita.ClienteBase = Convert.ToInt32(collection["tipoCliente1"]);
+                }
+                if (!string.IsNullOrEmpty(collection["clientes"]))
+                {
+                    visita.IDCliente = Convert.ToInt32(collection["clientes"]);
+                }
+                if (!string.IsNullOrEmpty(collection["assunto"]))
+                {
+                    visita.Assunto = collection["assunto"];
+                }
+                if (!string.IsNullOrEmpty(collection["dataInicio"]))
+                {
+                    visita.DataInicio = Convert.ToDateTime(collection["dataInicio"]);
+                }
+                if (!string.IsNullOrEmpty(collection["dataConclusao"]))
+                {
+                    visita.DataConclusao = Convert.ToDateTime(collection["dataConclusao"]);
+                }
+                if (!string.IsNullOrEmpty(collection["descricao"]))
+                {
+                    visita.Descricao = collection["descricao"];
+                }
+                if (user != null)
+                {
+                    visita.IDUsuario = user.Handle;
+                }
+
+                CRMEntities dbContext = new CRMEntities();
+                dbContext.AddToVisitas(visita);
+                dbContext.SaveChanges();
+                
+                //visita.ClienteBase = Convert.ToInt32(collection["tipoCliente"]);
+                //visita.TipoTarefa = Convert.ToInt32(collection["tipoTarefa"]);
+                //visita.TipoTarefa = Convert.ToInt32(collection["tipoTarefa"]);
+                //visita.TipoTarefa = Convert.ToInt32(collection["tipoTarefa"]);
+                //visita.TipoTarefa = Convert.ToInt32(collection["tipoTarefa"]);
+                //visita.TipoTarefa = Convert.ToInt32(collection["tipoTarefa"]);
 
                 return RedirectToAction("Index");
             }
