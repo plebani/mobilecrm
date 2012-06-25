@@ -100,13 +100,6 @@ namespace mobileCRM.Controllers
                 dbContext.AddToVisitas(visita);
                 dbContext.SaveChanges();
                 
-                //visita.ClienteBase = Convert.ToInt32(collection["tipoCliente"]);
-                //visita.TipoTarefa = Convert.ToInt32(collection["tipoTarefa"]);
-                //visita.TipoTarefa = Convert.ToInt32(collection["tipoTarefa"]);
-                //visita.TipoTarefa = Convert.ToInt32(collection["tipoTarefa"]);
-                //visita.TipoTarefa = Convert.ToInt32(collection["tipoTarefa"]);
-                //visita.TipoTarefa = Convert.ToInt32(collection["tipoTarefa"]);
-
                 return RedirectToAction("Index");
             }
             catch

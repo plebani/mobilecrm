@@ -22,7 +22,7 @@
         <!-- CABECALHO -->
         <div data-role="content" style="padding: 15px">
             <ul data-role="listview" data-divider-theme="a" data-inset="true" data-filter="true">
-                <li data-role="list-divider" role="heading">Próximas visitas </li>
+                <li data-role="list-divider" role="heading">Próximas visitas</li>
                 @foreach (var item in Model)
                 {
                     <li data-theme="c"><a href="@Url.Action("Details", "Visita", new { id = item.Handle })" data-transition="slide">@item.Descricao</a></li>
@@ -30,9 +30,9 @@
             </ul>
             <div data-role="navbar" data-iconpos="top">
                 <ul>
-                    <li><a href="@Url.Action("Create", "Visita")" data-icon="">Nova Visita </a></li>
-                    <li><a href="#page2" data-theme="" data-icon="">Não Realizadas </a></li>
-                    <li><a href="#page2" data-theme="" data-icon="">Relacionamento </a></li>
+                    <li><a href="@Url.Action("Create", "Visita")" data-theme="a" data-icon="plus">Nova Visita</a></li>
+                    <li><a href="" data-theme="a" data-icon="plus">Não Realizadas </a></li>
+                    <li><a href="" data-theme="a" data-icon="plus">Relacionamento </a></li>
                 </ul>
             </div>
         </div>

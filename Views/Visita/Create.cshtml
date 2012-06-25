@@ -22,7 +22,7 @@
             @using (@Html.BeginForm("Create", "Visita", FormMethod.Post))
             {
                  <div data-role="fieldcontain">
-                    <label for="selectmenu1">
+                    <label for="tipoTarefa">
                         Tipo Tarefa:
                     </label>
                     <select name="tipoTarefa" id="tipoTarefa" data-native-menu="false" tabindex="-1"
@@ -76,11 +76,11 @@
                             Data Conclusão: 
                         </label>
                         <input name="dataConclusao" id="dataConclusao" type="date" data-role="datebox" data-options='{"mode": "calbox", "calTodayButton": true}' />
-                 </fieldset>
+                    </fieldset>
                 </div>            
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
-                        <label for="desc">
+                        <label for="descricao">
                             Descrição
                         </label>
                         <textarea name="descricao" id="descricao"></textarea>
@@ -90,7 +90,7 @@
                 <div data-role="fieldcontain">
                     <fieldset class="ui-grid-a">
                         <div class="ui-block-a">
-                            <button class="ui-btn-hidden" aria-disabled="false">Cancelar</button>
+                            <a href="@Url.Action("Index", "Visita")" data-role="button">Cancelar</a>
                         </div>
                         <div class="ui-block-b">
                             <button type="submit" class="ui-btn-hidden" aria-disabled="false">Salvar</button>
