@@ -17,6 +17,7 @@
       <End Role="Clientes" EntitySet="Clientes" />
       <End Role="Visita" EntitySet="Visitas" />
     </AssociationSet>
+    <EntitySet Name="Event" EntityType="CRMModel.Event" />
   </EntityContainer>
   <EntityType Name="Tarefa">
     <Key>
@@ -126,4 +127,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="text" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="eventstart" Nullable="false" />
+    <Property Type="DateTime" Name="eventend" Nullable="false" />
+  </EntityType>
 </Schema>

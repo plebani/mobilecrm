@@ -7,6 +7,7 @@
     <Schema Namespace="CRMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="CRMModelStoreContainer">
           <EntitySet Name="Clientes" EntityType="CRMModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Event" EntityType="CRMModel.Store.Event" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Tarefas" EntityType="CRMModel.Store.Tarefas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Usuarios" EntityType="CRMModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Visitas" EntityType="CRMModel.Store.Visitas" store:Type="Tables" Schema="dbo" />
@@ -47,6 +48,15 @@
           <Property Name="UF" Type="varchar" MaxLength="2" />
           <Property Name="OrigemContato" Type="int" />
           <Property Name="Potencial" Type="int" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="text" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="eventstart" Type="datetime" Nullable="false" />
+          <Property Name="eventend" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Tarefas">
           <Key>
@@ -146,6 +156,7 @@
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="Visita" EntitySet="Visitas" />
           </AssociationSet>
+          <EntitySet Name="Event" EntityType="CRMModel.Event" />
         </EntityContainer>
         <EntityType Name="Tarefa">
           <Key>
@@ -255,6 +266,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="text" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="eventstart" Nullable="false" />
+          <Property Type="DateTime" Name="eventend" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -319,6 +339,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="CRMModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="eventend" ColumnName="eventend" />
+                <ScalarProperty Name="eventstart" ColumnName="eventstart" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -339,7 +369,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="CRMDbContext">
+      <Diagram Name="CRMDbContext" ZoomLevel="86">
         <EntityTypeShape EntityType="CRMModel.Tarefa" Width="1.5" PointX="3" PointY="1.125" Height="3.1340950520833335" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.Usuario" Width="1.5" PointX="0.75" PointY="3.75" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.Visita" Width="1.5" PointX="3" PointY="5.125" Height="3.3263964843749996" IsExpanded="true" />
@@ -356,6 +386,7 @@
           <ConnectorPoint PointX="5.375" PointY="5.6535546875000007" />
           <ConnectorPoint PointX="4.5" PointY="5.6535546875000007" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="CRMModel.Event" Width="1.5" PointX="7.375" PointY="0.75" Height="1.7879850260416665" />
       </Diagram>
     </Diagrams>
   </Designer>

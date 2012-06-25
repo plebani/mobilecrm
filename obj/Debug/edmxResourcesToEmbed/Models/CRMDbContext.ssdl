@@ -2,6 +2,7 @@
 <Schema Namespace="CRMModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="CRMModelStoreContainer">
     <EntitySet Name="Clientes" EntityType="CRMModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Event" EntityType="CRMModel.Store.Event" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Tarefas" EntityType="CRMModel.Store.Tarefas" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Usuarios" EntityType="CRMModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Visitas" EntityType="CRMModel.Store.Visitas" store:Type="Tables" Schema="dbo" />
@@ -42,6 +43,15 @@
     <Property Name="UF" Type="varchar" MaxLength="2" />
     <Property Name="OrigemContato" Type="int" />
     <Property Name="Potencial" Type="int" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="text" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="eventstart" Type="datetime" Nullable="false" />
+    <Property Name="eventend" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Tarefas">
     <Key>

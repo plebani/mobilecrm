@@ -71,5 +71,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Event">
+      <EntityTypeMapping TypeName="CRMModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="eventend" ColumnName="eventend" />
+          <ScalarProperty Name="eventstart" ColumnName="eventstart" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

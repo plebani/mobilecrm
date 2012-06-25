@@ -3,3 +3,4 @@ C:\Testes\CRM\mobileCRM\mobileCRM\bin\mobileCRM.pdb
 C:\Testes\CRM\mobileCRM\mobileCRM\obj\Debug\ResolveAssemblyReference.cache
 C:\Testes\CRM\mobileCRM\mobileCRM\obj\Debug\mobileCRM.dll
 C:\Testes\CRM\mobileCRM\mobileCRM\obj\Debug\mobileCRM.pdb
+C:\Testes\CRM\mobileCRM\mobileCRM\bin\DayPilot.Web.Mvc.xml

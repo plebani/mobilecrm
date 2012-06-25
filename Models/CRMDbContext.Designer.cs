@@ -135,6 +135,22 @@ namespace mobileCRM.Models
             }
         }
         private ObjectSet<Clientes> _Clientes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Event> Event
+        {
+            get
+            {
+                if ((_Event == null))
+                {
+                    _Event = base.CreateObjectSet<Event>("Event");
+                }
+                return _Event;
+            }
+        }
+        private ObjectSet<Event> _Event;
 
         #endregion
         #region AddTo Methods
@@ -169,6 +185,14 @@ namespace mobileCRM.Models
         public void AddToClientes(Clientes clientes)
         {
             base.AddObject("Clientes", clientes);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Event EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEvent(Event @event)
+        {
+            base.AddObject("Event", @event);
         }
 
         #endregion
@@ -723,6 +747,139 @@ namespace mobileCRM.Models
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CRMModel", Name="Event")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Event : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Event object.
+        /// </summary>
+        /// <param name="id">Initial value of the id property.</param>
+        /// <param name="text">Initial value of the text property.</param>
+        /// <param name="eventstart">Initial value of the eventstart property.</param>
+        /// <param name="eventend">Initial value of the eventend property.</param>
+        public static Event CreateEvent(global::System.Int32 id, global::System.String text, global::System.DateTime eventstart, global::System.DateTime eventend)
+        {
+            Event @event = new Event();
+            @event.id = id;
+            @event.text = text;
+            @event.eventstart = eventstart;
+            @event.eventend = eventend;
+            return @event;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String text
+        {
+            get
+            {
+                return _text;
+            }
+            set
+            {
+                OntextChanging(value);
+                ReportPropertyChanging("text");
+                _text = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("text");
+                OntextChanged();
+            }
+        }
+        private global::System.String _text;
+        partial void OntextChanging(global::System.String value);
+        partial void OntextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime eventstart
+        {
+            get
+            {
+                return _eventstart;
+            }
+            set
+            {
+                OneventstartChanging(value);
+                ReportPropertyChanging("eventstart");
+                _eventstart = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("eventstart");
+                OneventstartChanged();
+            }
+        }
+        private global::System.DateTime _eventstart;
+        partial void OneventstartChanging(global::System.DateTime value);
+        partial void OneventstartChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime eventend
+        {
+            get
+            {
+                return _eventend;
+            }
+            set
+            {
+                OneventendChanging(value);
+                ReportPropertyChanging("eventend");
+                _eventend = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("eventend");
+                OneventendChanged();
+            }
+        }
+        private global::System.DateTime _eventend;
+        partial void OneventendChanging(global::System.DateTime value);
+        partial void OneventendChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

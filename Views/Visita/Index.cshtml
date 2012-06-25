@@ -25,7 +25,7 @@
                 <li data-role="list-divider" role="heading">Próximas visitas</li>
                 @foreach (var item in Model)
                 {
-                    <li data-theme="c"><a href="@Url.Action("Details", "Visita", new { id = item.Handle })" data-transition="slide">@item.Descricao</a></li>
+                    <li data-theme="c"><a href="@Url.Action("Details", "Visita", new { id = item.Handle })" data-transition="slide">@item.Assunto</a></li>
                 }
             </ul>
             <div data-role="navbar" data-iconpos="top">
@@ -38,9 +38,7 @@
         </div>
         <!--RODAPE -->
         <div data-theme="a" data-role="footer" data-position="fixed">
-            <h3>
-               Benner Sistemas
-            </h3>
+            <h3>Benner Sistemas</h3>
         </div>
         <!--RODAPE -->
     </div>
