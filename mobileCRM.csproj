@@ -110,13 +110,21 @@
     <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\DayPilot\bubble.js" />
     <Content Include="Scripts\DayPilot\calendar.js" />
     <Content Include="Scripts\DayPilot\common.js" />
+    <Content Include="Scripts\DayPilot\menu.js" />
+    <Content Include="Scripts\DayPilot\modal.js" />
+    <Content Include="Scripts\DayPilot\month.js" />
+    <Content Include="Scripts\DayPilot\navigator.js" />
+    <Content Include="Scripts\DayPilot\scheduler.js" />
     <Content Include="Scripts\gps.jquery.js" />
     <Content Include="Scripts\mobile\jquery.mobile-1.0.1.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -141,7 +149,9 @@
     <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

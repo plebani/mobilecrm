@@ -1,6 +1,7 @@
 ﻿@using DayPilot.Web.Mvc.Events.Calendar;
 @using DayPilot.Web.Mvc.Enums.Calendar;
 
+
 @{
     ViewBag.Title = "Agenda";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,11 +17,125 @@
 
 @Html.DayPilotCalendar("dpc", new DayPilotCalendarConfig
 {
+    
+    //AllDayEnd = DayPilot.Web.Mvc.Enums.DateTimeSpec.DateTime,
+    AllDayEventBackColor = "#2951a5",
+    AllDayEventBorderColor = "transparent",
+    AllDayEventFontFamily = "Tahoma, Arial, Helvetica, sans-serif",
+    AllDayEventFontSize = "8pt",
+    AllDayEventFontColor = "#ffffff",
+    AllDayEventHeight = 16,
+    //AllowMultiSelect = true,
+    //AutoHideNonBusiness = false,
+    //AutoRefreshCommand = "refresh",
+    //AutoRefreshEnabled = false,
+    //AutoRefreshInterval = 60,
+    //AutoRefreshMaxCount = 20,
+    BorderColor = "#CED2CE",
+    //BusinessBeginsHour = 9,
+    //BusinessEndsHour = 18,
+    CellBackColor = "white",
+    CellBackColorNonBusiness = "white",
+    CellBorderColor = "#DEDFDE",
+    CellHeight = 20,
+    CellDuration = 30,
+    ColumnMarginRight = 5,
+    CornerBackColor = "#ECE9D8",
+    //CssClassPrefix = null,
+    //DeleteImageUrl = null,
+    //DayBeginsHour = 0,
+    //DayEndsHour = 24,
+    //Days = 1,
+    DurationBarColor = "#0000ff",
+    //DurationBarVisible = false,
+    //DurationBarWidth = 5,
+    //DurationBarImageUrl = null,
+    //EventArrangement = ArrangementType.Cascade,
+    EventBackColor = "#638EDE",
+    EventBorderColor = "#2951A5",
+    EventFontFamily = "Tahoma,Verdana,Sans-serif",
+    EventFontSize = "8pt",
+    EventFontColor = "white",
+    EventHeaderFontSize = "8pt",
+    EventHeaderFontColor = "#ffffff",
+    EventHeaderHeight = 14,
+    EventHeaderVisible = true,
+    EventSelectColor = "#0000ff",
+    HeaderFontSize = "10pt",
+    HeaderFontFamily = "Tahoma, Arial, Helvetica, sans-serif",
+    HeaderFontColor = "#42658C",
+    HeaderHeight = 21,
+    HeaderLevels = 1,
+    //Height = 400,
+    //HeightSpec = DayPilot.Web.Mvc.Enums.Calendar.HeightSpec.BusinessHours,
+    HourHalfBorderColor = "#EBEDEB",
+    HourBorderColor = "#DEDFDE",
+    HourFontColor = "#42658C",
+    HourFontFamily = "Tahoma, Arial, Helvetica, sans-serif",
+    HourNameBackColor = "#F3F3F9",
+    HourNameBorderColor = "#DEDFDE",
+    //HourWidth = 45,
+    //LoadingLabelText = "<img src=\'/demo/media/ajax-loader-round.gif\' />",
+    //LoadingLabelVisible = true,
+    //LoadingLabelFontSize = "10pt",
+    //LoadingLabelFontFamily = "Tahoma, Arial, Helvetica, sans-serif",
+    //LoadingLabelFontColor = "#ffffff",
+    //LoadingLabelBackColor = "",
+    //MoveBy = DragArea.Top,
+    //ScrollLabelsVisible = false,
+    //Shadow = ShadowType.Fill,
+    //ShowAllDayEvents = false,
+    //ShowAllDayEventStartEnd = false,
+    //ShowHeader = true,
+    //ShowHours = true,
+    //TimeFormat = DayPilot.Web.Mvc.Enums.TimeFormat.Clock24Hours,
+    //UseEventBoxes = DayPilot.Web.Mvc.Enums.UseBoxes.Never,
+    //UseEventSelectionBars = false,
+    //Width = "100%",
+    //EventSelectHandling = EventSelectHandlingType.CallBack,
+    //EventDeleteHandling = EventDeleteHandlingType.Disabled,
+    //EventDoubleClickHandling = EventDoubleClickHandlingType.Disabled,
+    //EventEditHandling = EventEditHandlingType.Disabled,
+    //EventRightClickHandling = EventRightClickHandlingType.Disabled,
+    //HeaderClickHandling = HeaderClickHandlingType.Disabled,
+    //TimeRangeDoubleClickHandling = TimeRangeDoubleClickHandlingType.Disabled,
+    //TimeRangeSelectedHandling = TimeRangeSelectedHandlingType.Disabled,
+    //onEventClick = function(e) { @Url.Action("Details", "Visita", new { id = 1 });},
+    //onEventSelect = function(e, change) { ; },
+    //onEventDelete = function(e) { ; },
+    //onEventDoubleClick = function(e) { ; },
+    //onEventEdit = function(e, newText) { ; },
+    //onEventMove = function(e, newStart, newEnd, newResource, external, ctrl, shift) { var newColumn = newResource; ; },
+    //onEventResize = function(e, newStart, newEnd) { ; },
+    //onEventRightClick = function(e) { ; },
+    //onHeaderClick = function(resource) { ; },
+    //onTimeRangeSelected = function(start, end, resource) { createEvent(start, end); },
+    //onTimeRangeDoubleClick = function(start, end, resource) { ; },
+    //columns = [{"Start":"2012-06-24T00:00:00","BackColor":"#F3F3F9","Name":"6/24/2012","ToolTip":null,"InnerHTML":"6/24/2012","Value":null}],
+    //Init(),
+    
     BackendUrl = Url.Content("~/Agenda/Backend"),
+    ViewType = DayPilot.Web.Mvc.Enums.Calendar.ViewType.WorkWeek,
     EventMoveHandling = DayPilot.Web.Mvc.Events.Calendar.EventMoveHandlingType.CallBack,
     EventResizeHandling = DayPilot.Web.Mvc.Events.Calendar.EventResizeHandlingType.CallBack,
     TimeRangeSelectedHandling = DayPilot.Web.Mvc.Events.Calendar.TimeRangeSelectedHandlingType.JavaScript,
+    EventClickHandling = EventClickHandlingType.JavaScript,
+    EventClickJavaScript = "onEventClick(e.value());",
+    ShowToolTip = true,
     TimeRangeSelectedJavaScript = "dpc.timeRangeSelectedCallBack(start, end, null, { name: prompt('Novo Evento:', 'Novo Evento') });"
-});
+})
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            onEventClick = function (e) {
+                
+                //$.post("/Visita/Details/", {new id = 1});
+                window.location = "/Visita/Details/1";
+            }
+
+        });  
+    </script>
 
 </div>

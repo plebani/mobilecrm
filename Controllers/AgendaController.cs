@@ -64,12 +64,35 @@ namespace mobileCRM.Controllers
 
             protected override void OnTimeRangeSelected(TimeRangeSelectedArgs e)
             {
-                Event toBeCreated = new Event { eventstart = e.Start, eventend = e.End, text = (string)e.Data["name"] };
-                db.AddToEvent(toBeCreated);
-                db.SaveChanges();
+                if (e.Data["name"] != null)
+                {
+                    Event toBeCreated = new Event { eventstart = e.Start, eventend = e.End, text = (string)e.Data["name"] };
+                    db.AddToEvent(toBeCreated);
+                    db.SaveChanges();
+                }
                 Update();
             }
 
+            protected override void OnEventClick(EventClickArgs e)
+            {
+                base.OnEventClick(e);
+            }
+            protected override void OnEventDelete(EventDeleteArgs e)
+            {
+                base.OnEventDelete(e);
+            }
+            protected override void OnEventDoubleClick(EventDoubleClickArgs e)
+            {
+                base.OnEventDoubleClick(e);
+            }
+            protected override void OnEventEdit(EventEditArgs e)
+            {
+                base.OnEventEdit(e);
+            }
+            protected override void OnEventSelect(EventSelectArgs e)
+            {
+                base.OnEventSelect(e);
+            }
             protected override void OnFinish()
             {
                 if (UpdateType == CallBackUpdateType.None)
@@ -84,8 +107,7 @@ namespace mobileCRM.Controllers
                 DataStartField = "eventstart";
                 DataEndField = "eventend";
             }
-
+            
         }
-
     }
 }

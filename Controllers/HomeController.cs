@@ -30,6 +30,7 @@ namespace mobileCRM.Controllers
 
             // Preenche msg na tela de visitas (Rótulo)
             ViewBag.MenssagemTituloVisitas = visitas.Count > 0 ? "Você possui novas atividades" : "Você não possui atividades";
+            ViewBag.qtdVisitas = visitas.Count.ToString();
 
             return View();
         }
@@ -61,20 +62,6 @@ namespace mobileCRM.Controllers
             connString2Builder.Encrypt = true;
             connString2Builder.TrustServerCertificate = true;
             
-            // Connect to the master database and create the sample database
-            //using (SqlConnection conn = new SqlConnection(connString2Builder.ToString()))
-            //{
-            //    using (SqlCommand command = conn.CreateCommand())
-            //    {
-            //        conn.Open();
-
-            //        // Create the sample database
-            //        string cmdText = String.Format("INSERT INTO Tarefas (Descricao, Assunto) values ('Primeira tarefa','Novo Assunto')");
-            //        command.CommandText = cmdText;
-            //        command.ExecuteNonQuery();
-            //        conn.Close();
-            //    }
-            //}
 
             return true;
         }
